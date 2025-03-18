@@ -12,10 +12,11 @@ public class RefrigeratedContainer : Container
         if(!PossibleProducts.Products.ContainsKey(productType))
             throw new ArgumentException($"Product '{productType}' is not allowed in refrigerated container.");
         
+        ProductType = productType;
+        
         if(temperature < PossibleProducts.Products[ProductType])
             throw new ArgumentException($"Temperature {temperature} is too low for {ProductType}. Allowed: {PossibleProducts.Products[ProductType]} degrees.");
         
-        ProductType = productType;
         Temperature = temperature;
     }
 
